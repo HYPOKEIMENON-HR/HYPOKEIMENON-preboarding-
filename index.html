@@ -181,6 +181,125 @@
             line-height: 1.6;
         }
 
+        /* 체크리스트 */
+        .checklist-wrap {
+            max-width: 640px;
+            margin: 0 auto 40px;
+            background: #F8F9FA;
+            border-radius: 24px;
+            padding: 32px 28px;
+        }
+        .checklist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .checklist-title {
+            font-size: 17px;
+            font-weight: 700;
+        }
+        .checklist-progress-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-gray);
+        }
+        .gauge-bar-bg {
+            width: 100%;
+            height: 16px;
+            background: #E5E8EB;
+            border-radius: 99px;
+            margin-bottom: 28px;
+            overflow: hidden;
+        }
+        .gauge-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #FF6B6B, #FFA94D, #FFD43B, #69DB7C, #4DABF7, #9775FA);
+            background-size: 800px 100%;
+            border-radius: 99px;
+            transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+        }
+        .checklist-group {
+            margin-bottom: 24px;
+        }
+        .checklist-group-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-lightgray);
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            margin-bottom: 4px;
+        }
+        .checklist-item:hover { background: #ECEEF0; }
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--text-darkgray);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .checklist-item span {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-black);
+            transition: color 0.2s ease;
+        }
+        .checklist-item span em {
+            font-style: normal;
+            font-size: 13px;
+            color: var(--text-lightgray);
+            margin-left: 4px;
+        }
+        .checklist-item.checked span {
+            color: var(--text-lightgray);
+            text-decoration: line-through;
+        }
+        .checklist-complete {
+            display: none;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-darkgray);
+            background: #E8F5E9;
+            border-radius: 12px;
+            padding: 14px;
+            margin-top: 8px;
+            animation: fadeInUp 0.4s ease;
+        }
+        .checklist-complete.show { display: block; }
+
+        /* 다음 섹션 바로가기 버튼 */
+        .next-section-btn {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 14px 32px;
+            border-radius: 20px;
+            background-color: var(--text-darkgray);
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        .next-section-btn:hover {
+            background-color: var(--text-black);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
         /* 푸터 */
         footer {
             max-width: 1040px;
@@ -196,7 +315,15 @@
         @media (max-width: 768px) {
             .section-hero h1 { font-size: 32px; }
             .info-cards { grid-template-columns: 1fr; }
-            .category-tabs { justify-content: flex-start; }
+            .category-tabs {
+                justify-content: center;
+                flex-wrap: wrap;
+                overflow-x: visible;
+            }
+            .tab {
+                flex: 0 1 calc(50% - 6px);
+                text-align: center;
+            }
         }
 
         /* 애니메이션 */
@@ -217,6 +344,7 @@
         <div class="category-tabs">
             <div class="tab active" data-tab="welcome">환영 인사</div>
             <div class="tab" data-tab="documents">입사서류 가이드</div>
+            <div class="tab" data-tab="checklist">입사서류 체크리스트</div>
             <div class="tab" data-tab="firstday">첫출근 가이드</div>
             <div class="tab" data-tab="department">부서소개</div>
         </div>
@@ -282,6 +410,7 @@
             <div class="hero-image">
                 <img src="https://res.cloudinary.com/dq3uhnrdc/image/upload/v1775176068/%ED%9E%88%ED%8F%AC_%EC%B2%AB%EC%B6%9C%EA%B7%BC-001_4_o5v7zm.png" alt="히포케이메논 첫출근 웹툰">
             </div>
+            <button class="next-section-btn" data-next="department">부서소개 보러가기 →</button>
         </div>
 
         <!-- ================================ -->
@@ -297,6 +426,54 @@
             <div class="hero-image" id="doc-comic">
                 <img src="https://res.cloudinary.com/dpvcmcpc2/image/upload/v1775114275/%EC%9E%85%EC%82%AC%EC%84%9C%EB%A5%98_%EC%B2%B4%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%8A%B8_%EC%BB%B7%EB%A7%8C%ED%99%94_1_lxst8p.jpg" alt="입사서류 체크리스트 만화">
             </div>
+            <button class="next-section-btn" data-next="checklist">입사서류 체크리스트 보러가기 →</button>
+        </div>
+
+        <!-- ================================ -->
+        <!-- 탭: 입사서류 체크리스트             -->
+        <!-- ================================ -->
+        <div class="tab-content" id="tab-checklist">
+            <div class="section-hero">
+                <div class="overline">ONE TEAM ONE SPIRIT</div>
+                <h1>입사서류<br>체크리스트</h1>
+                <p>하나씩 체크하며 빠짐없이 준비해 보세요!</p>
+            </div>
+
+            <div class="checklist-wrap">
+                <div class="checklist-header">
+                    <div class="checklist-title">📋 입사서류 체크리스트</div>
+                    <div class="checklist-progress-label"><span id="checked-count">0</span>%</div>
+                </div>
+                <div class="gauge-bar-bg">
+                    <div class="gauge-bar-fill" id="gauge-fill"></div>
+                </div>
+
+                <div class="checklist-group">
+                    <div class="checklist-group-label">📁 기본서류</div>
+                    <label class="checklist-item"><input type="checkbox" data-group="basic"> <span>주민등록등본</span></label>
+                    <label class="checklist-item"><input type="checkbox" data-group="basic"> <span>통장 사본</span></label>
+                    <label class="checklist-item"><input type="checkbox" data-group="basic"> <span>증명사진</span></label>
+                    <label class="checklist-item"><input type="checkbox" data-group="basic"> <span>입사 시 제출한 이력서</span></label>
+                </div>
+
+                <div class="checklist-group">
+                    <div class="checklist-group-label">📄 증빙서류</div>
+                    <label class="checklist-item"><input type="checkbox" data-group="proof"> <span>최종학력증명서</span></label>
+                    <label class="checklist-item"><input type="checkbox" data-group="proof"> <span>경력증명서</span></label>
+                    <label class="checklist-item"><input type="checkbox" data-group="proof"> <span>전 직장 원천징수영수증</span></label>
+                    <label class="checklist-item"><input type="checkbox" data-group="proof"> <span>자격증 사본</span></label>
+                </div>
+
+                <div class="checklist-group">
+                    <div class="checklist-group-label">📌 조건부 서류 <span style="font-weight:400; color: var(--text-lightgray); font-size:12px;">(해당자만)</span></div>
+                    <label class="checklist-item"><input type="checkbox" data-group="cond" data-optional="true"> <span>가족관계증명서 <em>(피부양자 신청자에 한함)</em></span></label>
+                    <label class="checklist-item"><input type="checkbox" data-group="cond" data-optional="true"> <span>병적증명서 <em>(병역사항 대상자에 한함)</em></span></label>
+                </div>
+
+                <div class="checklist-complete" id="checklist-complete">🎉 모든 서류 준비 완료! 첫날이 기대됩니다 😊</div>
+            </div>
+
+            <button class="next-section-btn" data-next="firstday">첫출근 가이드 보러가기 →</button>
         </div>
 
     </main>
@@ -315,6 +492,47 @@
                 tab.classList.add('active');
 
                 const target = tab.dataset.tab;
+                contents.forEach(c => {
+                    c.classList.remove('active');
+                    c.style.animation = 'none';
+                });
+
+                const activeContent = document.getElementById('tab-' + target);
+                activeContent.offsetHeight;
+                activeContent.style.animation = 'fadeInUp 0.5s ease forwards';
+                activeContent.classList.add('active');
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // 체크리스트 게이지
+        const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+        const requiredCheckboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]:not([data-optional])');
+        const totalCount = requiredCheckboxes.length;
+
+        function updateGauge() {
+            const checked = document.querySelectorAll('.checklist-item input:not([data-optional]):checked').length;
+            const percent = Math.round(checked / totalCount * 100);
+            document.getElementById('checked-count').textContent = percent;
+            document.getElementById('gauge-fill').style.width = percent + '%';
+            document.getElementById('checklist-complete').classList.toggle('show', checked === totalCount);
+        }
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                cb.closest('.checklist-item').classList.toggle('checked', cb.checked);
+                updateGauge();
+            });
+        });
+
+        // 다음 섹션 바로가기 버튼
+        document.querySelectorAll('.next-section-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.next;
+                tabs.forEach(t => t.classList.remove('active'));
+                document.querySelector(`.tab[data-tab="${target}"]`).classList.add('active');
+
                 contents.forEach(c => {
                     c.classList.remove('active');
                     c.style.animation = 'none';
