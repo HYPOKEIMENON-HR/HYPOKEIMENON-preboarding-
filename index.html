@@ -300,6 +300,26 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }
 
+
+        /* 개인화 환영 정보 */
+        .welcome-info {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 20px 24px;
+            border-radius: 20px;
+            background: #F8F9FA;
+            color: var(--text-darkgray);
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+        .welcome-info strong {
+            color: var(--text-black);
+            font-weight: 800;
+        }
+
         /* 푸터 */
         footer {
             max-width: 1040px;
@@ -355,8 +375,9 @@
         <div class="tab-content active" id="tab-welcome">
             <div class="section-hero">
                 <div class="overline">ONE TEAM ONE SPIRIT</div>
-                <h1 id="welcome-title">     HYPOKEIMENON의<br>입사를 환영합니다. </h1>
-                <p>함께할 동료가 되어주셔서 감사합니다.<br>히포케이메논에서의 첫걸음을 응원합니다.</p>
+                <h1 id="welcome-title">HYPOKEIMENON의<br>입사를 환영합니다.</h1>
+                <p id="welcome-desc">함께할 동료가 되어주셔서 감사합니다.<br>히포케이메논에서의 첫걸음을 응원합니다.</p>
+                <div id="welcome-info" class="welcome-info" style="display:none;"></div>
             </div>
 
             <div class="hero-image" id="welcome-photo">
@@ -506,23 +527,52 @@
             });
         });
         // ================================
-// 신규입사자 이름 자동 반영
-// ================================
+        // 신규입사자 개인화 정보 자동 반영
+        // 예시: ?name=홍길동&team=경영관리팀&date=2026-05-20&memo=첫 출근 당일 10시까지 출근해 주세요.
+        // ================================
+        const params = new URLSearchParams(window.location.search);
 
-const params = new URLSearchParams(window.location.search);
+        const userName = params.get('name');
+        const userTeam = params.get('team');
+        const userDate = params.get('date');
+        const userMemo = params.get('memo');
 
-const userName = params.get('name');
+        function formatDateKorean(dateValue) {
+            if (!dateValue) return '';
+            const [year, month, day] = dateValue.split('-');
+            return `${year}.${month}.${day}`;
+        }
 
-if (userName) {
+        const welcomeTitle = document.getElementById('welcome-title');
+        const welcomeDesc = document.getElementById('welcome-desc');
+        const welcomeInfo = document.getElementById('welcome-info');
 
-    const welcomeTitle = document.getElementById('welcome-title');
+        if (userName && welcomeTitle) {
+            welcomeTitle.innerHTML = `${userName}님,<br>HYPOKEIMENON의 입사를 환영합니다.`;
+        }
 
-    if (welcomeTitle) {
-        welcomeTitle.innerHTML =
-            `${userName}님,<br>HYPOKEIMENON의 입사를 환영합니다.`;
-    }
+        if ((userTeam || userDate || userMemo) && welcomeInfo) {
+            const infoItems = [];
 
-}
+            if (userTeam) {
+                infoItems.push(`<div><strong>소속 부서</strong> · ${userTeam}</div>`);
+            }
+
+            if (userDate) {
+                infoItems.push(`<div><strong>입사 예정일</strong> · ${formatDateKorean(userDate)}</div>`);
+            }
+
+            if (userMemo) {
+                infoItems.push(`<div><strong>안내 사항</strong> · ${userMemo}</div>`);
+            }
+
+            welcomeInfo.innerHTML = infoItems.join('');
+            welcomeInfo.style.display = 'inline-flex';
+        }
+
+        if ((userName || userTeam || userDate) && welcomeDesc) {
+            welcomeDesc.innerHTML = '함께할 동료가 되어주셔서 감사합니다.<br>히포케이메논에서의 첫걸음을 응원합니다.';
+        }
 
         // 체크리스트 게이지
         const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
