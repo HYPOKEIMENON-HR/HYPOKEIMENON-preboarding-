@@ -14,9 +14,7 @@
             --bg-body: #FFFFFF;
             --border-color: #F2F4F6;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'Pretendard', sans-serif;
             color: var(--text-black);
@@ -24,7 +22,6 @@
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }
-
         /* GNB */
         header {
             position: sticky;
@@ -45,14 +42,12 @@
             text-decoration: none;
             letter-spacing: 0.02em;
         }
-
         /* 메인 컨테이너 */
         main {
             max-width: 1040px;
             margin: 0 auto;
             padding: 48px 24px 80px;
         }
-
         /* 카테고리 탭 */
         .category-tabs {
             display: flex;
@@ -79,7 +74,6 @@
             color: white;
         }
         .tab:hover:not(.active) { background-color: #E5E8EB; }
-
         /* 탭 콘텐츠 영역 */
         .tab-content {
             display: none;
@@ -88,7 +82,6 @@
             display: block;
             animation: fadeInUp 0.5s ease forwards;
         }
-
         /* 히어로 섹션 */
         .section-hero {
             text-align: center;
@@ -114,7 +107,6 @@
             color: var(--text-gray);
             line-height: 1.7;
         }
-
         /* 이미지 영역 */
         .hero-image {
             width: 100%;
@@ -129,7 +121,6 @@
             height: auto;
             display: block;
         }
-
         /* placeholder */
         .hero-image.placeholder {
             aspect-ratio: 16 / 9;
@@ -146,7 +137,6 @@
         .hero-image.placeholder p {
             font-size: 14px;
         }
-
         /* 카드 그리드 */
         .info-cards {
             display: grid;
@@ -180,7 +170,6 @@
             color: var(--text-gray);
             line-height: 1.6;
         }
-
         /* 체크리스트 */
         .checklist-wrap {
             max-width: 640px;
@@ -278,7 +267,6 @@
             animation: fadeInUp 0.4s ease;
         }
         .checklist-complete.show { display: block; }
-
         /* 다음 섹션 바로가기 버튼 */
         .next-section-btn {
             display: block;
@@ -299,8 +287,6 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }
-
-
         /* 개인화 환영 정보 */
         .welcome-info {
             display: inline-flex;
@@ -319,7 +305,6 @@
             color: var(--text-black);
             font-weight: 800;
         }
-
         /* 푸터 */
         footer {
             max-width: 1040px;
@@ -330,7 +315,6 @@
             color: var(--text-lightgray);
             font-size: 14px;
         }
-
         /* 반응형 */
         @media (max-width: 768px) {
             .section-hero h1 { font-size: 32px; }
@@ -345,7 +329,6 @@
                 text-align: center;
             }
         }
-
         /* 애니메이션 */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -354,13 +337,10 @@
     </style>
 </head>
 <body>
-
     <header>
         <a href="#" class="logo">HYPOKEIMENON</a>
     </header>
-
     <main>
-
         <div class="category-tabs">
             <div class="tab active" data-tab="welcome">환영 인사</div>
             <div class="tab" data-tab="documents">입사서류 가이드</div>
@@ -368,7 +348,6 @@
             <div class="tab" data-tab="department">부서소개</div>
             <div class="tab" data-tab="checklist">입사서류 체크리스트</div>
         </div>
-
         <!-- ================================ -->
         <!-- 탭 1: 환영 인사                    -->
         <!-- ================================ -->
@@ -379,11 +358,9 @@
                 <p id="welcome-desc">함께할 동료가 되어주셔서 감사합니다.<br>히포케이메논에서의 첫걸음을 응원합니다.</p>
                 <div id="welcome-info" class="welcome-info" style="display:none;"></div>
             </div>
-
             <div class="hero-image" id="welcome-photo">
                 <img src="https://res.cloudinary.com/dq3uhnrdc/image/upload/v1776069219/%ED%99%98%EC%98%81%EB%A9%94%EC%84%B8%EC%A7%80_%EC%9D%B4%EB%AF%B8%EC%A7%80_%EC%88%98%EC%A0%95_ku0ghv.png" alt="히포케이메논 종무식 단체사진">
             </div>
-
             <div class="info-cards">
                 <div class="info-card">
                     <div class="icon">🤝</div>
@@ -402,7 +379,6 @@
                 </div>
             </div>
         </div>
-
         <!-- ================================ -->
         <!-- 탭 2: 부서소개                     -->
         <!-- ================================ -->
@@ -412,13 +388,11 @@
                 <h1>HYPOKEIMENON의<br>부서를 소개합니다.</h1>
                 <p>어떤 팀과 함께하게 될지 먼저 만나보세요.<br>각 부서의 역할과 분위기를 확인해 보세요.</p>
             </div>
-
             <div class="hero-image">
                 <img src="https://res.cloudinary.com/dq3uhnrdc/image/upload/v1778468297/%EC%9B%B9%ED%88%B0_%EB%B6%80%EC%84%9C%EC%86%8C%EA%B0%9C%ED%8E%B8_v1_x3qamm.jpg" alt="히포케이메논 부서소개 만화">
             </div>
             <button class="next-section-btn" data-next="checklist">입사서류 체크리스트 하러가기 →</button>
         </div>
-
         <!-- ================================ -->
         <!-- 탭 3: 첫출근 가이드                -->
         <!-- ================================ -->
@@ -428,13 +402,11 @@
                 <h1>HYPOKEIMENON의<br>첫 출근을 설명드립니다.</h1>
                 <p>첫날이 걱정되시죠? 아래 만화를 보며<br>편안하게 준비해 보세요.</p>
             </div>
-
             <div class="hero-image">
                 <img src="https://res.cloudinary.com/dq3uhnrdc/image/upload/v1778231817/%EC%9B%B9%ED%88%B0_%EB%A6%AC%EB%89%B4%EC%96%BC_%EC%B2%AB%EC%B6%9C%EA%B7%BC%ED%8E%B8_v1_fwdshz.jpg" alt="히포케이메논 첫출근 웹툰">
             </div>
             <button class="next-section-btn" data-next="department">부서소개 보러가기 →</button>
         </div>
-
         <!-- ================================ -->
         <!-- 탭 4: 입사서류 가이드              -->
         <!-- ================================ -->
@@ -444,13 +416,11 @@
                 <h1>HYPOKEIMENON의<br>입사서류준비를 설명드립니다.</h1>
                 <p>미리 준비하면 첫날이 훨씬 수월해요.<br>아래 만화를 보며 체크해 보세요.</p>
             </div>
-
             <div class="hero-image" id="doc-comic">
                 <img src="https://res.cloudinary.com/dq3uhnrdc/image/upload/v1778231824/%EC%9B%B9%ED%88%B0_%EB%A6%AC%EB%89%B4%EC%96%BC_%EC%9E%85%EC%82%AC%EC%84%9C%EB%A5%98%ED%8E%B8_v2_jmp7u7.jpg" alt="입사서류 체크리스트 만화">
             </div>
             <button class="next-section-btn" data-next="firstday">첫출근 가이드 보러가기 →</button>
         </div>
-
         <!-- ================================ -->
         <!-- 탭: 입사서류 체크리스트             -->
         <!-- ================================ -->
@@ -460,7 +430,6 @@
                 <h1>입사서류<br>체크리스트</h1>
                 <p>하나씩 체크하며 빠짐없이 준비해 보세요!</p>
             </div>
-
             <div class="checklist-wrap">
                 <div class="checklist-header">
                     <div class="checklist-title">📋 입사서류 체크리스트</div>
@@ -469,7 +438,6 @@
                 <div class="gauge-bar-bg">
                     <div class="gauge-bar-fill" id="gauge-fill"></div>
                 </div>
-
                 <div class="checklist-group">
                     <div class="checklist-group-label">📁 기본서류</div>
                     <label class="checklist-item"><input type="checkbox" data-group="basic"> <span>주민등록등본</span></label>
@@ -477,7 +445,6 @@
                     <label class="checklist-item"><input type="checkbox" data-group="basic"> <span>증명사진</span></label>
                     <label class="checklist-item"><input type="checkbox" data-group="basic"> <span>입사 시 제출한 이력서</span></label>
                 </div>
-
                 <div class="checklist-group">
                     <div class="checklist-group-label">📄 증빙서류</div>
                     <label class="checklist-item"><input type="checkbox" data-group="proof"> <span>최종학력증명서</span></label>
@@ -485,53 +452,76 @@
                     <label class="checklist-item"><input type="checkbox" data-group="proof"> <span>전 직장 원천징수영수증</span></label>
                     <label class="checklist-item"><input type="checkbox" data-group="proof"> <span>자격증 사본</span></label>
                 </div>
-
                 <div class="checklist-group">
                     <div class="checklist-group-label">📌 조건부 서류 <span style="font-weight:400; color: var(--text-lightgray); font-size:12px;">(해당자만)</span></div>
                     <label class="checklist-item"><input type="checkbox" data-group="cond" data-optional="true"> <span>가족관계증명서 <em>(피부양자 신청자에 한함)</em></span></label>
                     <label class="checklist-item"><input type="checkbox" data-group="cond" data-optional="true"> <span>병적증명서 <em>(병역사항 대상자에 한함)</em></span></label>
                 </div>
-
                 <div class="checklist-complete" id="checklist-complete">🎉 모든 서류 준비 완료! 첫날이 기대됩니다 😊</div>
             </div>
-
         </div>
-
     </main>
-
     <footer>
         © 2025 HYPOKEIMENON. All rights reserved.
     </footer>
-
     <script>
         const tabs = document.querySelectorAll('.tab');
         const contents = document.querySelectorAll('.tab-content');
+        const validTabs = ['welcome', 'documents', 'firstday', 'department', 'checklist'];
 
+        // 탭 UI만 전환 (히스토리 조작 없음)
+        function setContent(target) {
+            tabs.forEach(t => t.classList.remove('active'));
+            const activeTab = document.querySelector(`.tab[data-tab="${target}"]`);
+            if (activeTab) activeTab.classList.add('active');
+
+            contents.forEach(c => { c.classList.remove('active'); c.style.animation = 'none'; });
+            const activeContent = document.getElementById('tab-' + target);
+            if (!activeContent) return;
+            activeContent.offsetHeight;
+            activeContent.style.animation = 'fadeInUp 0.5s ease forwards';
+            activeContent.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 탭 전환 + 히스토리 push
+        function activateTab(target, pushHistory) {
+            setContent(target);
+            if (pushHistory !== false) {
+                const hash = target === 'welcome' ? '' : '#' + target;
+                history.pushState({ tab: target }, '', location.pathname + location.search + hash);
+            }
+        }
+
+        // 탭 클릭
         tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-
-                const target = tab.dataset.tab;
-                contents.forEach(c => {
-                    c.classList.remove('active');
-                    c.style.animation = 'none';
-                });
-
-                const activeContent = document.getElementById('tab-' + target);
-                activeContent.offsetHeight;
-                activeContent.style.animation = 'fadeInUp 0.5s ease forwards';
-                activeContent.classList.add('active');
-
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+            tab.addEventListener('click', () => activateTab(tab.dataset.tab));
         });
+
+        // 다음 섹션 버튼
+        document.querySelectorAll('.next-section-btn').forEach(btn => {
+            btn.addEventListener('click', () => activateTab(btn.dataset.next));
+        });
+
+        // 뒤로가기 / 앞으로가기
+        window.addEventListener('popstate', (e) => {
+            const target = e.state?.tab ?? 'welcome';
+            setContent(target);
+        });
+
+        // 초기 로드: URL 해시에 맞는 탭으로 이동
+        (function init() {
+            const hash = location.hash.replace('#', '');
+            const initial = validTabs.includes(hash) ? hash : 'welcome';
+            history.replaceState({ tab: initial }, '', location.href);
+            setContent(initial);
+        })();
+
         // ================================
         // 신규입사자 개인화 정보 자동 반영
         // 예시: ?name=홍길동&team=경영관리팀&date=2026-05-20&memo=첫 출근 당일 10시까지 출근해 주세요.
         // ================================
         const params = new URLSearchParams(window.location.search);
-
         const userName = params.get('name');
         const userTeam = params.get('team');
         const userDate = params.get('date');
@@ -550,26 +540,14 @@
         if (userName && welcomeTitle) {
             welcomeTitle.innerHTML = `${userName}님,<br>HYPOKEIMENON의 입사를 환영합니다.`;
         }
-
         if ((userTeam || userDate || userMemo) && welcomeInfo) {
             const infoItems = [];
-
-            if (userTeam) {
-                infoItems.push(`<div><strong>소속 부서</strong> · ${userTeam}</div>`);
-            }
-
-            if (userDate) {
-                infoItems.push(`<div><strong>입사 예정일</strong> · ${formatDateKorean(userDate)}</div>`);
-            }
-
-            if (userMemo) {
-                infoItems.push(`<div><strong>안내 사항</strong> · ${userMemo}</div>`);
-            }
-
+            if (userTeam) infoItems.push(`<div><strong>소속 부서</strong> · ${userTeam}</div>`);
+            if (userDate) infoItems.push(`<div><strong>입사 예정일</strong> · ${formatDateKorean(userDate)}</div>`);
+            if (userMemo) infoItems.push(`<div><strong>안내 사항</strong> · ${userMemo}</div>`);
             welcomeInfo.innerHTML = infoItems.join('');
             welcomeInfo.style.display = 'inline-flex';
         }
-
         if ((userName || userTeam || userDate) && welcomeDesc) {
             welcomeDesc.innerHTML = '함께할 동료가 되어주셔서 감사합니다.<br>히포케이메논에서의 첫걸음을 응원합니다.';
         }
@@ -593,28 +571,6 @@
                 updateGauge();
             });
         });
-
-        // 다음 섹션 바로가기 버튼
-        document.querySelectorAll('.next-section-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const target = btn.dataset.next;
-                tabs.forEach(t => t.classList.remove('active'));
-                document.querySelector(`.tab[data-tab="${target}"]`).classList.add('active');
-
-                contents.forEach(c => {
-                    c.classList.remove('active');
-                    c.style.animation = 'none';
-                });
-
-                const activeContent = document.getElementById('tab-' + target);
-                activeContent.offsetHeight;
-                activeContent.style.animation = 'fadeInUp 0.5s ease forwards';
-                activeContent.classList.add('active');
-
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
     </script>
-
 </body>
 </html>
